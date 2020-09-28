@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Item from '../components/item'
-import Search from '../components/search'
+import AnimangaInfo from '../components/animanga'
 import { ApolloClient, InMemoryCache, gql, ApolloProvider, useQuery } from '@apollo/client';
 
 const GET_PAGES = gql`
@@ -29,10 +29,10 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 }
 `
 
-const client = new ApolloClient({
-  uri: 'https://graphql.anilist.co',
-  cache: new InMemoryCache()
-});
+// const client = new ApolloClient({
+//   uri: 'https://graphql.anilist.co',
+//   cache: new InMemoryCache()
+// });
 
 
 
@@ -50,7 +50,7 @@ export default function Home() {
     </Head>
     <main>
       <div className="headr">Animanga Catalog</div>
-      <Search onSearch={""}></Search>
+      <AnimangaInfo />
       <ul>
         <li><Item data={new animangaData()}></Item></li>
         <li><Item data={new animangaData()}></Item></li>
