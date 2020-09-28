@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import Item from '../components/item'
+import Search from '../components/search'
 import { ApolloClient, InMemoryCache, gql, ApolloProvider, useQuery } from '@apollo/client';
 
 const GET_PAGES = gql`
@@ -35,18 +37,42 @@ const client = new ApolloClient({
 
 
 export default function Home() {
-  const { data, loading, error } = useQuery(GET_PAGES);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  class animangaData{
+    constructor(d){
+      this.img = "images/test-coverimg.jpg";
+      this.title = "My Hero Academia the movie heroes rising"; }
+  }
 
-  console.log(data)
   return (
     <>
     <Head>
-      <title>The Anime Catalog</title>
+      <title>The Animanga Catalog</title>
     </Head>
-    <ApolloProvider client ={client}>
-    </ApolloProvider>
+    <main>
+      <div className="headr">Animanga Catalog</div>
+      <Search onSearch={""}></Search>
+      <ul>
+        <li><Item data={new animangaData()}></Item></li>
+        <li><Item data={new animangaData()}></Item></li>
+        <li><Item data={new animangaData()}></Item></li>
+        <li><Item data={new animangaData()}></Item></li>
+        <li><Item data={new animangaData()}></Item></li>
+        <li><Item data={new animangaData()}></Item></li>
+      </ul>
+    </main>
+    <footer>
+
+    </footer>
+
+    <style jsx>{`
+      .headr {
+        background-color: black;
+        color: white;
+        height: 100px;
+        text-align: center;
+      }
+    `}
+    </style>
     </>
   )
 }
