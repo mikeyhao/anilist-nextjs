@@ -31,16 +31,16 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 const AnimangaInfo = (at) => {
 
   const { loading, error, data } = useQuery(GET_PAGE, {
-    variables: {perPage: 10, page: at.page, search: at.search}
+    variables: {perPage: 14, page: at.page, search: at.search}
   });
   // console.log(data.page)
   return loading?<p>Loading...</p>:
     error?<p>Error</p>:
     data.Page.media.map( media => {
       return (
-        <div key={media.id}>
+        <span key={media.id}>
           <Item data={media}/>
-        </div>
+        </span>
        )
       }
      )

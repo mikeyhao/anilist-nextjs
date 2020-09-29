@@ -45,7 +45,7 @@ export default function Home() {
       .headr {
         background-color: black;
         color: white;
-        height: 100px;
+        height: 50px;
         text-align: center;
       }
     `}

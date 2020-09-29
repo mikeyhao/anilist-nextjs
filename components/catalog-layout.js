@@ -23,12 +23,12 @@ const Main = () => {
 
     return (
         <>
-        <div>
+        <span>
             <input 
                 onChange = {checkSetQuery}
             />
-        </div>
-        <br />
+        </span>
+        {/* <br /> */}
         <span>
             <input 
                 type='number' 
@@ -40,11 +40,11 @@ const Main = () => {
         <button onClick={()=>count>1?setCount(count-1):setCount(count)}>Back</button>
         <span>page: {count}</span>
         <button onClick={()=>setCount(count+1)}>Next</button>
-        <ApolloProvider client={client}>
-            <AnimangaInfo page={count} search={query}/>
-            <div>
-            </div>
-        </ApolloProvider>
+        <div>
+            <ApolloProvider client={client}>
+                <AnimangaInfo page={count} search={query}/>
+            </ApolloProvider>
+        </div>
         </>
     );
 };

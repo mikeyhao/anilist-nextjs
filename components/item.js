@@ -16,8 +16,8 @@ export default function Item(data) {
     
     <style jsx>{`
     .imgdiv {
-        height: 300px;
-        width: 200px;
+        height: 240px;
+        width: 160px;
     }
     img {
         max-width: 100%;
