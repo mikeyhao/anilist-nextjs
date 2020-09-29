@@ -4,16 +4,12 @@ export default function Item(data) {
     // const [info, updateInfo] = useState(data);
     const info = data.data
 
-    function showInfo(e){
-        
-    }
-
     return (
       <>
-      <div className="card" onMouseEnter={showInfo}>
+      <div className="card">
         <div className="imgdiv">
-            <img src={info.img} className="img"></img>
-            <div className="title">{info.title}</div>
+            <img src={info.coverImage.large} className="img"></img>
+            <div className="title">{info.title.romaji}</div>
         </div>
       </div>
 

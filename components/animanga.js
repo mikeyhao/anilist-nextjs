@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import Item from '../components/item'
 
 const GET_PAGE = gql`
 query ($id: Int, $page: Int, $perPage: Int, $search: String) {
@@ -17,7 +18,7 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
         romaji
       }
       coverImage {
-        medium
+        large
       }
       type
       popularity
@@ -27,14 +28,20 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 }
 `;
 
-const AnimangaInfo = () => {
-  const { loading, error, data } = useQuery(GET_PAGE);
-  console.log(data)
-  
-    return (
-        <>
-        </>
-    )
+const AnimangaInfo = (at) => {
+  const { loading, error, data } = useQuery(GET_PAGE, {
+    variables: {perPage: 10, page: at.page}
+  });
+  return loading?<p>Loading...</p>:
+    error?<p>Error</p>:
+    data.Page.media.map( media => {
+      return (
+        <div key={media.id}>
+          <Item data={media}/>
+        </div>
+       )
+      }
+     )
 }
 
 export default AnimangaInfo;

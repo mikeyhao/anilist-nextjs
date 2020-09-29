@@ -1,20 +1,30 @@
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient, { gql } from "apollo-boost";
 import AnimangaInfo from "./animanga";
+import React, { useState } from 'react';
 
-const Main = ({ data }) => {
-const client = new ApolloClient({
-    uri: "https://graphql.anilist.co",
-});
+const Main = () => {
+    const [count, setCount] = useState(1);
 
-return (
-    <ApolloProvider client={client}>
-        <AnimangaInfo />
-        <div>
-            <h1>NextJS GraphQL Apollo App</h1>
-        </div>
-    </ApolloProvider>
-);
+    function pageNum() {
+        // this.page += 1
+    }
+
+    const client = new ApolloClient({
+        uri: "https://graphql.anilist.co",
+    });
+
+    return (
+        <>
+        <button onClick={()=>count>1?setCount(count-1):setCount(count)}>Back</button>
+        <button onClick={()=>setCount(count+1)}>Next</button>
+        <ApolloProvider client={client}>
+            <AnimangaInfo page={count}/>
+            <div>
+            </div>
+        </ApolloProvider>
+        </>
+    );
 };
 
 export default Main;
