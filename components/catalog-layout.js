@@ -1,6 +1,6 @@
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient, { gql } from "apollo-boost";
-import { AnimangaInfo } from "../components/animanga";
+import AnimangaInfo from "./animanga";
 
 const Main = ({ data }) => {
 const client = new ApolloClient({

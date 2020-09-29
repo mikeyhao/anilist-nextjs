@@ -28,7 +28,8 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 `;
 
 const AnimangaInfo = () => {
-    const { loading, error, data } = useQuery(GET_PAGE);
+  const { loading, error, data } = useQuery(GET_PAGE);
+  console.log(data)
   
     return (
         <>
