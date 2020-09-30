@@ -5,13 +5,18 @@ import Head from 'next/head'
 export default function Item(data) {
   const info = data.data
 
+  function goToMAL(){
+    window.open("https://myanimelist.net/"+
+    info.type.toString().toLowerCase()+"/"+info.idMal)
+  }
+
   return (
     <>
     <Head>
       <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" 
         rel="stylesheet"/>
     </Head>
-    <div className="card">
+    <div className="card" onClick={goToMAL}>
       <img src={info.coverImage.large} className="img" />
       <div className="title">{info.title.romaji}</div>
       <Details data={info}></Details>
@@ -24,8 +29,8 @@ export default function Item(data) {
     max-height: 100%;
   }
   .card {
-    height: 220px;
-    width: 150px;
+    height: 192px;
+    width: 136px;
     display: inline-block;
   }
   .card:hover {
