@@ -32,7 +32,7 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [MediaSort])
 const AnimangaInfo = (at) => {
 
   const { loading, error, data } = useQuery(GET_PAGE, {
-    variables: {perPage: 14, page: at.page, search: at.search, sort: "POPULARITY_DESC"}
+    variables: {perPage: 16, page: at.page, search: at.search, sort: "POPULARITY_DESC"}
   });
   return loading?<p>Loading...</p>:
     error?<p>Error</p>:

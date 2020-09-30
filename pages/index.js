@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Item from '../components/item'
 import Main from '../components/catalog-layout'
 import { ApolloClient, InMemoryCache, gql, ApolloProvider, useQuery } from '@apollo/client';
 

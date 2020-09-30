@@ -1,64 +1,44 @@
 import React, { useState } from 'react';
 import Details from '../components/itemDetails'
+import Head from 'next/head'
 
 export default function Item(data) {
-  const [details, writeDetails] = useState(null);
   const info = data.data
-
-  function mouseDisplayDetails(e) {
-    console.log(e)
-    
-    writeDetails({
-      type: info.type,
-      pop: info.popularity,
-      avgScore: info.averageScore
-    })
-  }
 
   return (
     <>
-    <div className="card" onMouseEnter={mouseDisplayDetails}>
-      <div className="imgdiv">
-        <div className="title">{info.title.romaji}</div>
-          <img src={info.coverImage.large} className="img">
-          </img>
-          <div className="hiddenInfo">
-            <Details data={details}/>
-          </div>
-      </div>
+    <Head>
+      <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" 
+        rel="stylesheet"/>
+    </Head>
+    <div className="card">
+      <img src={info.coverImage.large} className="img" />
+      <div className="title">{info.title.romaji}</div>
+      <Details data={info}></Details>
     </div>
 
   
   <style jsx>{`
-  .imgdiv {
-    height: 240px;
-    width: 160px;
-  }
   img {
     max-width: 100%;
     max-height: 100%;
   }
   .card {
-    background-color: #e0e0e0;
+    height: 220px;
+    width: 150px;
     display: inline-block;
   }
   .card:hover {
+    border-top: 4px solid black;
     background-color: white;
-    border: 1px solid black;
   }
   .title {
-    margin-top: -5px;
     color: black;
     overflow: hidden;
     text-overflow: ellipsis; 
-    white-space: nowrap; 
-  }
-  .hiddenInfo {
-    background-color: red;
-    opacity: 1;
-    color: white;
-    margin-top: -140px;
-    border: 1px solid black;
+    white-space: nowrap;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
   }
   `}
 

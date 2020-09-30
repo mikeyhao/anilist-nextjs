@@ -18,7 +18,7 @@ const Main = () => {
 
     function checkSetQuery(e) {
         e.target.value == "" || e.target.value == null?
-            setQuery(null): setQuery(e.target.value)
+            setQuery(null): (setQuery(e.target.value), setCount(1))
     }
 
     return (
