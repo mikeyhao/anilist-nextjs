@@ -1,4 +1,4 @@
-## Deployed on [Vercel](https://anilist-nextjs-jceunqs92.vercel.app/).
+## Deployed on [Vercel](https://anilist-nextjs.vercel.app/).
 
 The website uses **Next.JS** and **GraphQL (w/ ApolloClient)** to extract details from [Anilist](anilist.co)'s API and displays all animanga in a paginated format.
 
