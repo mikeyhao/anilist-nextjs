@@ -3,16 +3,16 @@ import { gql } from "apollo-boost";
 import Item from '../components/item'
 
 const GET_PAGE = gql`
-query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [MediaSort]) {
   Page(page: $page, perPage: $perPage) {
     pageInfo {
-      total
+      total 
       currentPage
       lastPage
       hasNextPage
       perPage
     }
-    media(id: $id, search: $search) {
+    media(id: $id, search: $search, sort: $sort) {
       id
       title {
         romaji
@@ -26,14 +26,14 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
     }
   }
 }
+
 `;
 
 const AnimangaInfo = (at) => {
 
   const { loading, error, data } = useQuery(GET_PAGE, {
-    variables: {perPage: 14, page: at.page, search: at.search}
+    variables: {perPage: 14, page: at.page, search: at.search, sort: "POPULARITY_DESC"}
   });
-  // console.log(data.page)
   return loading?<p>Loading...</p>:
     error?<p>Error</p>:
     data.Page.media.map( media => {
