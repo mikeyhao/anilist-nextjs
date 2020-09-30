@@ -28,13 +28,13 @@ const Main = () => {
                 onChange = {checkSetQuery}
             />
         </span>
-        {/* <br /> */}
         <span>
             <input 
                 type='number' 
                 onChange={setCountFromInput}
                 min='1'
                 placeholder="jump to page"
+                onFocus={(e)=>e.target.value=""}
                 />
         </span>
         <button onClick={()=>count>1?setCount(count-1):setCount(count)}>Back</button>

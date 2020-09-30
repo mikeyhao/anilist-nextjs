@@ -12,11 +12,6 @@ const client = new ApolloClient({
 
 
 export default function Home() {
-  // class animangaData{
-  //   constructor(d){
-  //     this.img = "images/test-coverimg.jpg";
-  //     this.title = "My Hero Academia the movie heroes rising"; }
-  // }
 
   return (
     <>
@@ -28,14 +23,6 @@ export default function Home() {
       <ApolloProvider client={client}>
           <Main />
       </ApolloProvider>
-      {/* <ul>
-        <li><Item data={new animangaData()}></Item></li>
-        <li><Item data={new animangaData()}></Item></li>
-        <li><Item data={new animangaData()}></Item></li>
-        <li><Item data={new animangaData()}></Item></li>
-        <li><Item data={new animangaData()}></Item></li>
-        <li><Item data={new animangaData()}></Item></li>
-      </ul> */}
     </main>
     <footer>
 
