@@ -1,14 +1,5 @@
 import Head from 'next/head'
 import Main from '../components/catalog-layout'
-import { ApolloClient, InMemoryCache, gql, ApolloProvider, useQuery } from '@apollo/client';
-
-
-const client = new ApolloClient({
-  uri: 'https://graphql.anilist.co',
-  cache: new InMemoryCache()
-});
-
-
 
 export default function Home() {
 
@@ -23,9 +14,7 @@ export default function Home() {
         <div className="headrTitle">
         The Animanga Catalog</div>
       </div>
-      <ApolloProvider client={client}>
           <Main />
-      </ApolloProvider>
     </main>
 
     <style jsx>{`

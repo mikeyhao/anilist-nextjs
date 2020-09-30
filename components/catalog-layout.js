@@ -4,19 +4,31 @@ import AnimangaInfo from "./animanga";
 import React, { useState } from 'react';
 import Head from 'next/head';
 
+/**
+ * Component containing the everything except the header
+ * Includes search bar, paging, anime information
+ */
 const Main = () => {
-    const [count, setCount] = useState(1);
-    const [query, setQuery] = useState(null);
+    const [count, setCount] = useState(1); // Sets the page count
+    const [query, setQuery] = useState(null); // Sets the search query
 
+    // Anilist api with ApolloClient, the Apollo Provider will
+    // pass the client to children component
     const client = new ApolloClient({
         uri: "https://graphql.anilist.co",
     });
 
+    /**
+     * Sets the page number with error handling
+     */
     function setCountFromInput(e) {
         e.target.value === "" || e.target.value<1?
             setCount(1): setCount(parseInt(e.target.value))
     }
 
+    /**
+     * Sets the search query with error handling
+     */
     function checkSetQuery(e) {
         e.target.value == "" || e.target.value == null?
             setQuery(null): (setQuery(e.target.value), setCount(1))
@@ -66,6 +78,7 @@ const Main = () => {
             </ApolloProvider>
         </div>
         </main>
+
         <style jsx>{`
             main {
                 font-family: 'Poppins', sans-serif;

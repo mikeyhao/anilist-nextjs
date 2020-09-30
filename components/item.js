@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import Details from '../components/itemDetails'
 import Head from 'next/head'
 
+/**
+ * Generates a card view for each animanga retrieved from the query
+ * @param {*} data the query data passed down from parent component
+ */
 export default function Item(data) {
   const info = data.data
 
+  /**
+   * Allows onClick to open a new tab of said animanga's information
+   * on the MAL website with the id provided in anilist.co api
+   */
   function goToMAL(){
     window.open("https://myanimelist.net/"+
     info.type.toString().toLowerCase()+"/"+info.idMal)

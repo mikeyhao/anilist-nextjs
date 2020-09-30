@@ -1,7 +1,13 @@
 import Head from 'next/head'
 
+/**
+ * Seperate component specifically for animanga details such as
+ * popularity, score, type etc...
+ * 
+ * It is seperate because initially another concept was in my mind, but
+ * decided against it but kept the component
+ */
 export default function Details(data) {
-    console.log(data.data)
     const info = data.data
     return data.data == null? 
       <></>:
